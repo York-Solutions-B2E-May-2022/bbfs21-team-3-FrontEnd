@@ -1,0 +1,1 @@
+export const G0_TO_REGISTER = "G0_TO_REGISTER"
