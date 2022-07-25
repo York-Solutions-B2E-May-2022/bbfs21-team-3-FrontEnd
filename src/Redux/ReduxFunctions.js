@@ -1,4 +1,17 @@
+import {LOGIN_SUCCESSFUL} from "./Actions";
 
+export function login(username, password){
+    return async function sideEffect(dispatch){
+        try{
+            const response = await fetch(`http://localhost:8080/login?username=${username}&password=${password}`)
+            if (response.ok){
+                dispatch({type:LOGIN_SUCCESSFUL})
+            }
+        }catch(e){
+            console.log(e)
+        }
+    }
+}
 
 export function submitUser(obj){
     return async function sideEffect(dispatch, getState){
