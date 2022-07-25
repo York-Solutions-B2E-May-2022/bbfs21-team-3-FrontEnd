@@ -13,7 +13,7 @@ export function login(username, password){
     }
 }
 
-export function submitUser(obj){
+export function saveUserInfo(obj){
     return async function sideEffect(dispatch, getState){
         try{
             const response = await fetch ("http://localhost:8080/register", {

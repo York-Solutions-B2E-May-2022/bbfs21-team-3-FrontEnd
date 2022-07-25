@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
+import {saveUserInfo} from "../Redux/ReduxFunctions";
 
 export function Register(){
     const dispatch = useDispatch();
@@ -33,9 +34,10 @@ export function Register(){
             ...user,
             role: 'customer'
         }
-            // Backend is not Set Up
-        //dispatch(submitUser(userObj))
+        dispatch(saveUserInfo(userObj))
     }
+
+
     return(
         <div>
             <form>

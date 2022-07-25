@@ -1,5 +1,6 @@
 export const G0_TO_REGISTER = "G0_TO_REGISTER"
 export const LOGIN_SUCCESSFUL = "ReduxFunctions/LOGIN_SUCCESSFUL"
+export const GO_TO_LOGIN = "G0_TO_LOGIN"
 
 export const initState ={
 isLoggedIn: false
@@ -13,7 +14,6 @@ export function reducer(state = initState, action){
                 ...state,
                 isLoggedIn: true
             }
-
         default:
             return state
     }
