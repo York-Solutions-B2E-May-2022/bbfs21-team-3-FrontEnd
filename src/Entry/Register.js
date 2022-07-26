@@ -7,7 +7,8 @@ export function Register(){
     const [user, setUser] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        role: ''
     })
     function handleUserName(e){
         setUser({
@@ -25,6 +26,12 @@ export function Register(){
         setUser({
             ...user,
             email: e.target.value
+        })
+    }
+    function handleRole(e) {
+        setUser({
+            ...user,
+            role: e.target.value
         })
     }
     function submitUser(e){

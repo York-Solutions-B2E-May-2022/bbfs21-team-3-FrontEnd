@@ -1,9 +1,12 @@
 export const G0_TO_REGISTER = "G0_TO_REGISTER"
 export const LOGIN_SUCCESSFUL = "ReduxFunctions/LOGIN_SUCCESSFUL"
 export const GO_TO_LOGIN = "G0_TO_LOGIN"
+export const SET_TOKEN = "SET_TOKEN"
+export const REMOVE_TOKEN = "REMOVE_TOKEN "
 
 export const initState ={
-isLoggedIn: false
+    isLoggedIn: false,
+    token: null
 }
 
 export function reducer(state = initState, action){
@@ -13,6 +16,16 @@ export function reducer(state = initState, action){
             return {
                 ...state,
                 isLoggedIn: true
+            }
+        case SET_TOKEN:
+            return {
+                ...state,
+                token: action.value
+            }
+        case REMOVE_TOKEN:
+            return {
+                ...state,
+                token: null
             }
         default:
             return state
