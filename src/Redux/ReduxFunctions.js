@@ -17,7 +17,7 @@ export function saveUserInfo(obj){
     return async function sideEffect(dispatch, getState){
         try{
             const response = await fetch ("http://localhost:8080/register", {
-                methods: "POST",
+                method: "POST",
                 headers: {
                     "Accept": 'application/json',
                     "Content-Type": 'application/json'
@@ -25,7 +25,22 @@ export function saveUserInfo(obj){
                 body: JSON.stringify(obj)
             })
         }catch(e){
+            console.log(e)
+        }
+    }
+}
 
+export function setCookie(obj){
+    return async function sideEffect(dispatch, getState){
+        try{
+            const response = await fetch ("http://localhost:8080/", {
+                method: "GET"
+            })
+            const data = await response.json()
+            console.log(data)
+
+        }catch(e){
+            console.log(e)
         }
     }
 }

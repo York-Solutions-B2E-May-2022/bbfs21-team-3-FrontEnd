@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import {saveUserInfo} from "../Redux/ReduxFunctions";
+import {saveUserInfo, setCookie} from "../Redux/ReduxFunctions";
 
 export function Register(){
     const dispatch = useDispatch();
@@ -37,6 +37,10 @@ export function Register(){
         dispatch(saveUserInfo(userObj))
     }
 
+    function handleSetCookie(e){
+        e.preventDefault()
+        dispatch(setCookie())
+    }
 
     return(
         <div>
@@ -49,7 +53,8 @@ export function Register(){
 
                 <label>Email:</label>
                 <input onChange={(e)=>handleUserEmail(e)} type='text' />
-                <button type={'submit'} onClick={(e)=> submitUser(e)}>Submit</button>
+                <button type={'submit'} onClick={submitUser}>Submit</button>
+                <button onClick={handleSetCookie}>Get Cookie</button>
             </form>
         </div>
     )

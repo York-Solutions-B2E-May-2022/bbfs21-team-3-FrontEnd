@@ -1,6 +1,7 @@
 import {useDispatch} from "react-redux";
 import {G0_TO_REGISTER, GO_TO_LOGIN} from "../Redux/Actions";
 import {GO_TO_GUEST} from "../Redux/Reducers/EntryReducer";
+import {setCookie} from "../Redux/ReduxFunctions";
 
 export function Home(){
     const dispatch = useDispatch()
