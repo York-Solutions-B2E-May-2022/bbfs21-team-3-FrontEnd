@@ -13,34 +13,25 @@ function App() {
 
     const isLogin = useSelector(state => state.EntryReducer.login)
     const isShopping = useSelector(state => state.EntryReducer.isShopping)
-    const isLoggedIn = useSelector(state => state.EntryReducer.isLoggedIn)
+    const isLoggedIn = useSelector(state => state.reducer.isLoggedIn)
 
     if(register){
         return <Register />
     }
+    console.log(isLoggedIn)
 
-    if(isLogin){return <Login/>}
-    if(isShopping){return <Shop />}
+    if (isLoggedIn){
+        return <div>
+            test
+            <Logout/>
+        </div>
+    }
+        if(isLogin){return <Login/>}
+        if(isShopping){return <Shop />}
 
   return (
     <div className="AppHeader">
       <Home />
-        {
-            isLoggedIn === true ?
-            <div>
-                <Logout/>
-            </div> :
-                <div>
-                    {
-                        isLogin === true ??
-                        <Login/>
-                    }
-                    {
-                        isShopping=== true ??
-                        <Shop/>
-                    }
-                </div>
-        }
     </div>
   );
 }

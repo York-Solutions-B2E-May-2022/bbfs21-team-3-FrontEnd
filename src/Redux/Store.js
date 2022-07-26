@@ -1,6 +1,7 @@
 
 import {applyMiddleware, compose, combineReducers, createStore} from 'redux';
 import {EntryReducer} from "./Reducers/EntryReducer";
+import {reducer} from "./Actions";
 
 const asyncMiddleware = storeAPI  => next=> action=> {
     if(typeof action === 'function')
@@ -11,6 +12,7 @@ const asyncMiddleware = storeAPI  => next=> action=> {
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
 
 const rootReducer = combineReducers({
-    EntryReducer
+    EntryReducer,
+    reducer
 })
 export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(asyncMiddleware)))
