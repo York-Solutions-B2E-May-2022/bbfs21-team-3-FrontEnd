@@ -1,4 +1,5 @@
 import {LOGIN_SUCCESSFUL, SET_TOKEN, REMOVE_TOKEN, LOGOUT} from "./Actions";
+import {ON_LOGOUT} from "./Reducers/EntryReducer";
 
 export function login(username, password){
     console.log(username, password)
@@ -28,6 +29,7 @@ export function logout(){
             if (response.ok){
                 dispatch({type: REMOVE_TOKEN})
                 dispatch({type: LOGOUT})
+                dispatch({type: ON_LOGOUT})
             }
         } catch (e) {
             console.log(e)

@@ -1,5 +1,6 @@
 import {G0_TO_REGISTER, GO_TO_LOGIN} from "../Actions";
 export const GO_TO_GUEST = "GO_TO_GUEST"
+export const ON_LOGOUT = "ON_LOGOUT"
 
 const init = {
     register: false,
@@ -22,6 +23,13 @@ export function EntryReducer(state= init, action){
             return{
                 ...state,
                 isShopping: true
+            }
+        case ON_LOGOUT:
+            return {
+                ...state,
+                register: false,
+                login: false,
+                isShopping: false
             }
         default:
             return{
